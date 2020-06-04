@@ -9,33 +9,7 @@ body{
     position: relative;
 }
 
-ul{
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    flex-wrap:wrap;
-    justify-content: space-between;
-    align-items: center;
 
-}
-nav{
-    margin:2vw;
-}
-
-li{
-    background-color: #0B4141;
-    padding:1vw 5vw;
-    color:  #faf0dc;
-    font-size: 1.4vw;
-    font-weight: 400;
-    font-family: 'Merriweather', serif;
-    font-style: italic;
-}
-footer{
-    background-color: #0B4141;
-    height:5vw;
-    
-}
 .main{
     display: flex;
     flex-direction: row;
@@ -96,4 +70,160 @@ button{
     font-family: 'Merriweather', serif;
     font-weight: 400;
     font-style: italic;
+}
+.admin-form{
+    position: absolute;
+    background-color: #faf0dc;
+    border: 1px solid black;
+    border-radius: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Merriweather', serif;
+    z-index: 2;
+    font-size: 2vw;
+}
+.admin-form > form{    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2vw;
+    padding: 5vw 5vw 2vw 5vw;
+    
+}
+
+.admin-inp{
+    width: 100%;
+    height: 3vw;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+}
+.btn{
+    
+    padding: 0;
+    margin: 0;
+}
+.admin-form-close{
+    position: absolute;
+    width: 3vw;
+    height: 3vw;
+    line-height: 2.8vw;
+    top: 5px;
+    right: 5px;
+    background-color: rgb(197, 33, 38);
+    color: white;
+    
+}
+
+.admin-submit-btn{
+    margin-left: 2vw;
+    height: 4vw;
+    font-size: 1.5vw;
+    font-family: 'Merriweather', serif;
+    background-color: #C7d0d8;
+    font-weight: 400;
+    font-style: italic;
+}
+.form-mask{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.651);
+}
+.bad-input{
+    color: rgb(197, 33, 38);
+    text-align: center;
+    font-size: 2vw;
+    margin-bottom: -2vw;
+}
+.hidden{
+    display: none;
+}
+@media screen and (min-width: 678px) and (max-width:1200px){
+    .main{
+        height: 80vh;
+        margin-top:10vw;
+        
+    }
+}
+@media screen and (max-width: 678px){
+    .admin-form > form{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .admin-inp{
+        height: 4vw;
+        width: 100%;
+        font-size: 2vw;
+    }
+    .admin-form-close{
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+    .admin-submit-btn{
+        margin-left: 50%;
+        transform: translateX(-50%);
+        height: 6vw;
+    }
+    .bad-input{
+        padding-top: 20px;
+    }
+    
+    .main{
+        flex-direction: column;
+        height:90vh;
+    }
+    .welcome-message{
+        margin:10vh auto;
+        transform: scale(1.1);
+        height:20vh;
+        padding: auto;
+    }
+    .home-images{
+        margin:2vw auto;
+        height:40vw;
+        padding: auto;
+    }
+    
+}
+@media screen and (max-width: 500px){
+    .main{
+        height:80vh;
+    }
+    .welcome-message{
+        
+        transform: scale(1.4);
+        
+    }
+    .home-images{
+        
+        transform: scale(1.15);
+        
+    }
+}
+@media screen and (max-width: 400px){
+
+    .welcome-message{
+        
+        transform: scale(1.6);
+        
+    }
+    .home-images{
+        
+        transform: scale(1.35);
+        
+    }
+}
+
+@media screen and (max-width: 250px){
+    .admin-form-close{
+        width: 10px;
+        height: 10px;
+        font-size: 5px;
+    }
+    .bad-input{
+        padding-top: 12px;
+    }
+
 }

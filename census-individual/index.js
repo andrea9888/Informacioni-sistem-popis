@@ -7,25 +7,38 @@ let count=0;
 function nextQuestion(e){
     count++;
     e.preventDefault();
-    if (count<5){
+    if (count<6){
         let nextQ = document.querySelector(`.f${count+1}`);
         let curQ = document.querySelector(`.f${count}`);
         curQ.style.display = "none";
         nextQ.style.display = "block";
     }
-    if (count === 5){
+    if (count === 6){
         openModalWindow();
         count--;
     }
 
     function openModalWindow(){
-        let q1 =  "Broj ukućana: " + document.querySelector(".broj-ukucana").value;
-        let q2 = "Izabrana opština: " + document.querySelector(".select-opstina").value;
-        let q3 = "Naselje: " + document.querySelector(".ime-naselja").value + ", " + document.querySelector(".tip-naselja").value;
-        let q4 = "Boravište: " + document.querySelector(".kuca").value;
-        let q5 = "Prosječna zarada domaćinstva: " + document.querySelector(".zarada").value + '€';
+        let q1 =  "Vaša nacionalna pripadnost: " + document.querySelector(".select-nacija").value;
+        let q2 = "Maternji jezik: " + document.querySelector(".select-jezik").value;
+        let q3 = "Vjeroispovijest: " + document.querySelector(".vjera").value;
+        let q4, q5, q6;
+        for (let i=0;i<2;i++){
+            if (document.querySelectorAll('input[name="posao"]')[i].checked){
+                q4 = "Zaposlenost: " + document.querySelectorAll('input[name="posao"]')[i].value;
+                console.log("da");
+            }
+            if (document.querySelectorAll('input[name="gender"]')[i].checked){
+                q5 = "Pol: " + document.querySelectorAll('input[name="gender"]')[i].value;
+            }
+            if (document.querySelectorAll('input[name="brak"]')[i].checked){
+                q6 = "Brak: " + document.querySelectorAll('input[name="brak"]')[i].value;
+            }
+        }
+        
+        
 
-        let arrHelp = [q1, q2, q3, q4, q5];
+        let arrHelp = [q1, q2, q3, q4, q5, q6];
         
         let modalW = document.createElement("div");
         let table = document.createElement("table");
@@ -33,7 +46,7 @@ function nextQuestion(e){
         
         
         
-        for(let i=0;i<5;i++){
+        for(let i=0;i<6;i++){
             
             let row = document.createElement("tr");
             let field = document.createElement("td");
@@ -48,7 +61,6 @@ function nextQuestion(e){
         modalW.appendChild(table);
 
 
-
         let x = document.createElement("button");
         x.innerText = "X";
         x.className = "x";
@@ -61,7 +73,6 @@ function nextQuestion(e){
         mask.className = "mask";
         x.addEventListener("click", (event) => {
             mask.style.display = "none";
-  
             main.removeChild(modalW);
             document.querySelector(".submit").style.display = "none";
           });

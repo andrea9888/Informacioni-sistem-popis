@@ -48,3 +48,23 @@ button{
     font-style: italic;
     
 }
+@media screen and (max-width:678px){
+    .woman{
+        width:40vw;
+        top:50vw;
+        right:30vw;
+        
+    }
+    p{
+        font-size: 3vw;
+        height:15vw;
+        text-align: center;
+    }
+    button{
+        font-size: 2.5vw;
+        width:30vw;
+        height:12vw;
+        margin: 0 7.5vw;
+    }
+
+}
